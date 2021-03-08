@@ -5,43 +5,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Storage {
-    private static final List<User> premiums = new ArrayList<>();
-    private static final List<User> mediums = new ArrayList<>();
-    private static final List<User> simplers = new ArrayList<>();
+    private final List<User> premiums = new ArrayList<>();
+    private final List<User> heights = new ArrayList<>();
+    private final List<User> mediums = new ArrayList<>();
+    private final List<User> simplers = new ArrayList<>();
 
-    public static void addPremium(User user) {
-        if (premiums.contains(user)) {
-            premiums.set(premiums.indexOf(user), user);
-        } else {
+    public void addPremium(User user) {
             premiums.add(user);
-        }
     }
 
-    public static List<User> getPremiums() {
+    public List<User> getPremiums() {
         return premiums;
     }
 
-    public static void addMediums(User user) {
-        if (mediums.contains(user)) {
-            mediums.set(mediums.indexOf(user), user);
-        } else {
-            mediums.add(user);
-        }
+    public void addHeights(User user) {
+        heights.add(user);
     }
 
-    public static List<User> getMediums() {
+    public List<User> getHeights() {
+        return heights;
+    }
+
+    public void addMediums(User user) {
+            mediums.add(user);
+    }
+
+    public List<User> getMediums() {
         return mediums;
     }
 
-    public static void addSimple(User user) {
-        if (simplers.contains(user)) {
-            simplers.set(simplers.indexOf(user), user);
-        } else {
+    public void addSimple(User user) {
             simplers.add(user);
-        }
     }
 
-    public static List<User> getSimplers() {
+    public List<User> getSimplers() {
         return simplers;
     }
 }
