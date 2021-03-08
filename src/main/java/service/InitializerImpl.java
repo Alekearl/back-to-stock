@@ -8,33 +8,33 @@ import storage.Storage;
 public class InitializerImpl implements Initializer {
 
     @Override
-    public void initializer(User user, Product product) {
+    public void initializer(Storage storage, User user, Product product) {
         switch (product.getCategory()) {
             case BOOKS:
             case DIGITAL:
                 if (user.isPremium()) {
-                    Storage.addPremium(user);
+                    storage.addPremium(user);
                     break;
                 }
                 if (user.getAge() >= 70) {
-                    Storage.addMediums(user);
+                    storage.addMediums(user);
                     break;
                 }
                 if (!(user.isPremium()) && user.getAge() < 70) {
-                    Storage.addSimple(user);
+                    storage.addSimple(user);
                     break;
                 }
             case MEDICAL:
                 if (user.isPremium()) {
-                    Storage.addPremium(user);
+                    storage.addPremium(user);
                     break;
                 }
                 if (user.getAge() >= 70 && product.getCategory().equals(ProductCategory.MEDICAL)) {
-                    Storage.addMediums(user);
+                    storage.addHeights(user);
                     break;
                 }
                 if (!(user.isPremium()) && user.getAge() < 70) {
-                    Storage.addSimple(user);
+                    storage.addSimple(user);
                     break;
                 }
         }
