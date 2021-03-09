@@ -1,12 +1,12 @@
 package service;
 
-import model.Product;
-import model.User;
-import storage.Storage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.Product;
+import model.User;
+import storage.Storage;
 
 public class BackToStockServiceImp implements BackToStockService {
     private final Map<Product, Storage> products = new HashMap<>();

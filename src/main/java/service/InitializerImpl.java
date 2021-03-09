@@ -1,5 +1,6 @@
 package service;
 
+import java.util.NoSuchElementException;
 import model.Product;
 import model.ProductCategory;
 import model.User;
@@ -24,6 +25,7 @@ public class InitializerImpl implements Initializer {
                     storage.addSimple(user);
                     break;
                 }
+                break;
             case MEDICAL:
                 if (user.isPremium()) {
                     storage.addPremium(user);
@@ -37,6 +39,9 @@ public class InitializerImpl implements Initializer {
                     storage.addSimple(user);
                     break;
                 }
+                break;
+            default:
+                throw new NoSuchElementException("Element doesn't exist!");
         }
     }
 }
