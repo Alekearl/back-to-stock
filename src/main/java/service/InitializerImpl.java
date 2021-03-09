@@ -7,6 +7,7 @@ import model.User;
 import storage.Storage;
 
 public class InitializerImpl implements Initializer {
+    private static final int AGE = 70;
 
     @Override
     public void initializer(Storage storage, User user, Product product) {
@@ -17,11 +18,11 @@ public class InitializerImpl implements Initializer {
                     storage.addPremium(user);
                     break;
                 }
-                if (user.getAge() >= 70) {
+                if (user.getAge() >= AGE) {
                     storage.addMediums(user);
                     break;
                 }
-                if (!(user.isPremium()) && user.getAge() < 70) {
+                if (!(user.isPremium()) && user.getAge() < AGE) {
                     storage.addSimple(user);
                     break;
                 }
@@ -31,17 +32,19 @@ public class InitializerImpl implements Initializer {
                     storage.addPremium(user);
                     break;
                 }
-                if (user.getAge() >= 70 && product.getCategory().equals(ProductCategory.MEDICAL)) {
+                if (user.getAge() >= AGE
+                        && product.getCategory().equals(ProductCategory.MEDICAL)) {
                     storage.addHeights(user);
                     break;
                 }
-                if (!(user.isPremium()) && user.getAge() < 70) {
+                if (!(user.isPremium()) && user.getAge() < AGE) {
                     storage.addSimple(user);
                     break;
                 }
                 break;
             default:
-                throw new NoSuchElementException("Element doesn't exist!");
+                throw new NoSuchElementException("Something went wrong. "
+                + "Can't find " + product.getCategory() + "category.");
         }
     }
 }
