@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 class BackToStockServiceImpTest {
-    BackToStockService backToStockService = new BackToStockServiceImp();
+    BackToStockService backToStockService;
     User edward = new User();
     User jason = new User();
     User michael = new User();
@@ -17,6 +17,7 @@ class BackToStockServiceImpTest {
 
     @BeforeEach
     public void setUp() {
+        backToStockService = new BackToStockServiceImp();
         edward.setName("Edward");
         edward.setPremium(false);
         edward.setAge(25);
